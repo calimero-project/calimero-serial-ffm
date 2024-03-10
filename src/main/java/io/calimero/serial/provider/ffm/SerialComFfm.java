@@ -58,7 +58,7 @@ final class SerialComFfm implements SerialCom {
 					.flowControl(flowControl(settings.flowControl()))
 					.timeouts(timeouts(settings));
 		} catch (final IOException e) {
-			throw new KNXException("opening " + settings, e);
+			throw new KNXException("opening " + settings.portId(), e);
 		}
 	}
 
