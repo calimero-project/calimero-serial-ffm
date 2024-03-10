@@ -57,4 +57,7 @@ public final class SerialConnectionProvider implements io.calimero.serial.spi.Se
 
 	@Override
 	public Set<String> portIdentifiers() { return SerialPort.portIdentifiers(); }
+
+	@Override
+	public String toString() { return "FFM serial connection provider"; }
 }

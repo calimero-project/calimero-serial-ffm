@@ -74,6 +74,9 @@ final class SerialComFfm implements SerialCom {
 	@Override
 	public void close() { port.close(); }
 
+	@Override
+	public String toString() { return port.toString(); }
+	
 	private static SerialPort.StopBits stopBits(final StopBits stopbits) {
 		return switch (stopbits) {
 			case One -> SerialPort.StopBits.One;
