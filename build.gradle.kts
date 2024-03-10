@@ -45,3 +45,49 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            artifactId = rootProject.name
+            from(components["java"])
+            pom {
+                name.set("Calimero serial com service provider")
+                description.set("Serial communication provider using the serial-ffm library")
+                url.set("https://github.com/calimero-project/calimero-serial-ffm")
+                inceptionYear.set("2024")
+                licenses {
+                    license {
+                        name.set("GNU General Public License, version 2, with the Classpath Exception")
+                        url.set("LICENSE")
+                    }
+                }
+                developers {
+                    developer {
+                        name.set("Boris Malinowsky")
+                        email.set("b.malinowsky@gmail.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/calimero-project/calimero-serial-ffm.git")
+                    url.set("https://github.com/calimero-project/calimero-serial-ffm.git")
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "maven"
+            val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2")
+            val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
+            url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
+            credentials(PasswordCredentials::class)
+        }
+    }
+}
+
+signing {
+    if (project.hasProperty("signing.keyId")) {
+        sign(publishing.publications["mavenJava"])
+    }
+}
