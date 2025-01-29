@@ -38,7 +38,7 @@ tasks.withType<Jar> {
 dependencies {
     api("io.calimero:calimero-core:$version")
     implementation("io.calimero:serial-ffm:0.1-SNAPSHOT")
-    testImplementation(platform("org.junit:junit-bom:5.11.3"))
+    testImplementation(platform("org.junit:junit-bom:5.11.4"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
