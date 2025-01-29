@@ -60,7 +60,7 @@ publishing {
             artifactId = rootProject.name
             from(components["java"])
             pom {
-                name.set("Calimero serial com service provider")
+                name.set("Calimero serial communication service provider")
                 description.set("Serial communication provider using the serial-ffm library")
                 url.set("https://github.com/calimero-project/calimero-serial-ffm")
                 inceptionYear.set("2024")

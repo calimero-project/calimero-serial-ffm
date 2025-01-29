@@ -1,7 +1,8 @@
-Calimero serial access provider using Java FFM
+Calimero serial communication service provider using Java FFM
 =============
 
-_calimero-serial-ffm_ provides serial access for _calimero-core_. 
+_calimero-serial-ffm_ provides serial access for _calimero-core_, using the [serial-ffm](https://github.com/calimero-project/serial-ffm) Java library. 
+Requires Java 23 or newer.
 
 ### Building from source
 ~~~ sh
