@@ -46,6 +46,14 @@ tasks.test {
     useJUnitPlatform()
 }
 
+val enableNativeAccess = listOf(
+    "--enable-native-access", "serial.ffm"
+)
+
+tasks.withType<JavaExec>().configureEach {
+    jvmArgs(enableNativeAccess)
+}
+
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
