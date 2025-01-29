@@ -20,7 +20,7 @@ tasks.javadoc { options.encoding = "UTF-8" }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(22))
+        languageVersion.set(JavaLanguageVersion.of(23))
     }
     withSourcesJar()
     withJavadocJar()
