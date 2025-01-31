@@ -1,6 +1,6 @@
 /*
     Calimero 2 - A library for KNX network access
-    Copyright (c) 2024, 2024 B. Malinowsky
+    Copyright (c) 2024, 2025 B. Malinowsky
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -43,12 +43,12 @@ import io.calimero.serial.spi.SerialCom;
 import serial.ffm.SerialPort;
 
 /**
- * Serial connection provider for serial communication using the Java FFM API.
+ * Serial connection provider for serial communication using the Java Foreign Function and Memory (FFM) API.
  */
 public final class SerialConnectionProvider implements io.calimero.serial.spi.SerialConnectionProvider {
 
 	/**
-	 * Creates a new serial FFM connection provider instance.
+	 * Creates a new FFM serial connection provider instance.
 	 */
 	public SerialConnectionProvider() {}
 
