@@ -56,7 +56,13 @@ public final class SerialConnectionProvider implements io.calimero.serial.spi.Se
 	public SerialCom open(final Settings settings) throws KNXException { return new SerialComFfm(settings); }
 
 	@Override
-	public Set<String> portIdentifiers() { return SerialPort.portIdentifiers(); }
+	public Set<String> portIdentifiers() {
+		try {
+			return SerialPort.portIdentifiers();
+		} catch (ExceptionInInitializerError _) {
+			return Set.of();
+		}
+	}
 
 	@Override
 	public String toString() { return "FFM serial connection provider"; }
