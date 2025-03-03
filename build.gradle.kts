@@ -6,13 +6,15 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
+    mavenLocal()
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots")
 }
 
 group = "io.calimero"
 version = "3.0-SNAPSHOT"
+
+val junitJupiterVersion by rootProject.extra { "5.12.0" }
 
 tasks.compileJava { options.encoding = "UTF-8" }
 tasks.compileTestJava { options.encoding = "UTF-8" }
@@ -38,12 +40,14 @@ tasks.withType<Jar> {
 dependencies {
     api("io.calimero:calimero-core:$version")
     implementation("io.calimero:serial-ffm:0.1-SNAPSHOT")
-    testImplementation(platform("org.junit:junit-bom:5.11.4"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
-tasks.test {
-    useJUnitPlatform()
+testing {
+    suites {
+        val test by getting(JvmTestSuite::class) {
+            useJUnitJupiter("${rootProject.extra.get("junitJupiterVersion")}")
+        }
+    }
 }
 
 val enableNativeAccess = listOf(
