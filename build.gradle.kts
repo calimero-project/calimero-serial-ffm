@@ -39,7 +39,7 @@ tasks.withType<Jar> {
 
 dependencies {
     api("io.calimero:calimero-core:$version")
-    implementation("io.calimero:serial-ffm:0.2-SNAPSHOT")
+    implementation("io.calimero:serial-ffm:0.3")
 }
 
 testing {
