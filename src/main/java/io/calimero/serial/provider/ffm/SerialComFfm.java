@@ -1,6 +1,6 @@
 /*
     Calimero 3 - A library for KNX network access
-    Copyright (c) 2024, 2024 B. Malinowsky
+    Copyright (c) 2024, 2026 B. Malinowsky
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -58,7 +58,7 @@ final class SerialComFfm implements SerialCom {
 					.flowControl(flowControl(settings.flowControl()))
 					.timeouts(timeouts(settings));
 		} catch (final IOException e) {
-			throw new KNXException("opening " + settings.portId(), e);
+			throw new KNXException("failed to open port '" + settings.portId() + "'", e);
 		}
 	}
 
@@ -76,7 +76,7 @@ final class SerialComFfm implements SerialCom {
 
 	@Override
 	public String toString() { return port.toString(); }
-	
+
 	private static SerialPort.StopBits stopBits(final StopBits stopbits) {
 		return switch (stopbits) {
 			case One -> SerialPort.StopBits.One;
