@@ -39,6 +39,7 @@ package io.calimero.serial.provider.ffm;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.Duration;
 
 import io.calimero.KNXException;
 import io.calimero.serial.spi.SerialCom;
@@ -100,7 +101,7 @@ final class SerialComFfm implements SerialCom {
 	}
 
 	private static SerialPort.Timeouts timeouts(final SerialConnectionProvider.Settings settings) {
-		return new SerialPort.Timeouts((int) settings.readIntervalTimeout().toMillis(),
-				0, (int) settings.receiveTimeout().toMillis(), 0, 0);
+		return new SerialPort.Timeouts(settings.readIntervalTimeout(), settings.receiveTimeout(), Duration.ZERO,
+				Duration.ZERO, Duration.ZERO);
 	}
 }
