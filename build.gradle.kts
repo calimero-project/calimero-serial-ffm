@@ -1,6 +1,6 @@
 plugins {
     id("java-library")
-    id("io.github.ben-manes.versions") version "0.62.0"
+    id("io.github.ben-manes.versions") version "0.64.0"
     id("maven-publish")
     signing
 }
